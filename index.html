@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript Quiz</title>
+    <!-- style -->
+    <link rel="stylesheet" href="./style/style.css" />
+    <!-- shake animation -->
+    <link rel="stylesheet" href="./style/animation.css" />
+    <!-- code style -->
+    <link rel="stylesheet" href="./code_styles/an-old-hope.css" />
+    <!-- code style scripts -->
+    <script src="./highlight.pack.js"></script>
+  </head>
+  <body>
+      <!-- description -->
+    <div class="description">
+      <h1>JavaScript Quiz Game</h1>
+      <p>JavaScript it's an amazing programming language, don't you think? If you made it here
+        you've probably studied it; and if you've studied it, you know that with its dynamism come quirks and caveats. 
+        You think you know JavaScript? Let's find out!
+      </p>
+        <p class="credits">The questions of this quiz are taken from a well known GitHub 
+          <a href="https://github.com/lydiahallie/javascript-questions" target="_blank">repo</a>. We'll soon add our questions. Feel free to contribute! </p>
+      <button class="btn start">Start</button>
+    </div>
+    <!-- end description -->
+
+    <!-- sandobox for questions -->
+    <div class="sand-box hidden">
+      <h3 class="question-title"></h3>
+      <pre><code class="javascript" id="question-code"></code></pre>
+      <div class="answers-wrapper"></div>
+      <button class="btn next-btn" disabled>Next</button>
+    </div>
+    <!-- end sandbox -->
+
+    <!-- score -->
+   <div class="score-wrapper hidden">
+       <p class="score"></p>
+       <button class="btn start">Restart</button>
+   </div>
+
+    <!-- end score -->
+
+    <script src="./js/script.js" type="module"></script>
+  </body>
+</html>

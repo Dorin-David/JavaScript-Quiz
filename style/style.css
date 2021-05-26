@@ -1,0 +1,175 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+:root {
+  --pale-gold: rgb(231, 203, 43);
+  --btn-disabled: rgb(237, 214, 85);
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background: #f6f6f6;
+}
+
+pre {
+  margin-top: 0.4rem;
+}
+
+h1 {
+  color: #cab440;
+  font-weight: 600;
+  text-align: center;
+}
+
+p {
+  font-size: 1.1rem;
+  margin: 0.5rem 2rem;
+  line-height: 1.4;
+}
+
+.credits {
+  margin-top: 0;
+  font-size: 0.8rem;
+  color: rgb(131, 125, 125);
+}
+
+.credits a {
+  text-decoration: none;
+  color: var(--pale-gold);
+}
+
+code.hljs {
+  width: 80%;
+  margin: auto;
+  margin-top: 0;
+  font-size: 1.2rem;
+  padding: 1rem;
+  border-radius: 6px;
+}
+
+.sand-box {
+  min-width: 500px;
+  width: 70%;
+  margin: 1rem auto;
+}
+
+.hidden {
+  display: none;
+}
+
+.answers-wrapper {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-auto-rows: auto;
+  grid-template-areas:
+    "a b"
+    "c d"
+    "e .";
+}
+
+.question {
+  flex: 0 1 220px;
+  margin: 0.5rem;
+  padding: 0.7rem;
+  border: 2px solid #121212;
+  border-radius: 6px;
+  color: #363535;
+  transition: all 0.6s ease;
+  background: #fff;
+}
+
+.question:not(.correct, .incorrect):hover {
+  cursor: pointer;
+  border: 2px solid darkgray;
+  transform: scale(1.05);
+}
+
+.question.disabled {
+  border: 2px solid darkgray;
+}
+.question.correct {
+  transition: none;
+  border: 2px solid rgb(32, 168, 32);
+}
+
+.question.incorrect {
+  transition: none;
+  border: 2px solid rgb(221, 99, 85);
+}
+
+.question.disabled:hover {
+  cursor: initial;
+  transform: initial;
+}
+
+.question-title {
+  width: 80%;
+  margin: auto;
+  margin-bottom: 0;
+  padding: 0.5rem 1rem;
+  background: #121212;
+  border-radius: 6px;
+  color: var(--pale-gold);
+}
+
+.question-letter {
+  font-size: 1.3rem;
+  background: var(--pale-gold);
+  padding: 7px;
+  border-radius: 6px;
+  margin-right: 0.4rem;
+}
+
+.question p {
+  display: inline-block;
+  font-size: 1.2rem;
+}
+
+.btn {
+  width: 100px;
+  cursor: pointer;
+  background: rgb(231, 203, 43);
+  border: none;
+  outline: none;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  border-radius: 6px;
+  display: block;
+  margin: 1.3rem auto;
+}
+
+.btn.start {
+  transition: transform 0.5s ease;
+}
+
+.btn.start:hover {
+  transform: scale(1.1);
+}
+
+.next-btn[disabled] {
+  color: #232827;
+  background: var(--btn-disabled);
+}
+
+.a {
+  grid-area: a;
+}
+
+.b {
+  grid-area: b;
+}
+
+.c {
+  grid-area: c;
+}
+
+.d {
+  grid-area: d;
+}
+
+.score {
+  font-size: 1.3rem;
+  margin: auto;
+  width: 200px;
+}
