@@ -1,4 +1,5 @@
 import populateQuestion from './populateQuestion.js';
+import {shuffleArray} from './utils.js'
 import { questions } from './questions.js';
 
 const startButton = document.querySelector('.btn.start');
@@ -18,7 +19,7 @@ function startGame() {
 function gamePlaying() {
     let correctAnswers = 0;
     let index = 0;
-    let answers = [...questions].slice(0, 3);
+    let answers = shuffleArray([...questions]);
 
     function checkAnswer(correct) {
         if (correct) {

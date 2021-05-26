@@ -13,7 +13,7 @@
           c: "`ReferenceError` and `21`",
           d: "`undefined` and `ReferenceError`",
       },
-      correct: "d"
+      correct: "`undefined` and `ReferenceError`"
    } ,
     {
         title: `What's the output`,
@@ -29,7 +29,7 @@
               b: "`0 1 2` and `3 3 3`",
               c: "`3 3 3` and `0 1 2`",
           },
-          correct: 'c'
+          correct: "`3 3 3` and `0 1 2`"
     },
 
     {
@@ -50,7 +50,7 @@
               c: "`20` and `63`",
               d: "`NaN` and `63`"
           },
-          correct: 'b'
+          correct: "`20` and `NaN`"
     },
     {
         title: `What's the output`,
@@ -60,7 +60,7 @@
             b: "`false` and `NaN`",
             c: "`false` and `false`"
         },
-        correct: 'a'
+        correct: "`1` and `false`"
 
     },
     {
@@ -80,7 +80,7 @@
               c: "`mouse[bird['size']]` is not valid",
               d: "All of them are valid"
           },
-          correct: 'a'
+          correct: "`mouse.bird.size` is not valid"
     }, 
     {
         title: `What's the output`,
@@ -98,7 +98,7 @@
             d: 'ReferenceError',
             e: 'TypeError'
         },
-        correct: 'a'
+        correct: 'Hello'
     }, 
     {
         title: `What's the output`,
@@ -116,7 +116,7 @@
             c: "`true` `false` `false`",
             d: "`false` `true` `true`"
         },
-        correct: "c"
+        correct: "`true` `false` `false`"
     }, 
     {
         title: `What's the output`,
@@ -139,7 +139,7 @@
           c: 'green',
           d: 'TypeError'
         },
-        correct: 'd'
+        correct: 'TypeError'
     },
     {
         title: `What's the output`,
@@ -152,7 +152,7 @@
         b: 'ReferenceError: greetign is not defined',
         c: 'undefined'
         },
-        correct: 'a'
+        correct: '{}'
 
     },
     {
@@ -168,7 +168,7 @@
             c: "`'Woof'` gets logged.",
             d: "`ReferenceError`"
         },
-        correct: 'a'
+        correct: "Nothing, this is totally fine!"
     },
     
     

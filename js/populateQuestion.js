@@ -1,3 +1,5 @@
+import { shuffleAnswers } from './utils.js'
+
 function populateQuestion(question, callback) {
     const questionTitle = document.querySelector('.question-title');
     const questionCode = document.querySelector('#question-code');
@@ -7,20 +9,24 @@ function populateQuestion(question, callback) {
     questionTitle.textContent = title + '?';
     questionCode.textContent = code;
 
-    const questionAnswers = Object.keys(answers);
-
     //clear previous options
-    options.innerHTML = ''; 
+    options.innerHTML = '';
     //highlight code
     hljs.highlightAll();
 
+    const questionAnswers = Object.keys(answers);
+
+    const shuffledAnswers = shuffleAnswers(answers);
+
     //populate answers
-    questionAnswers.forEach(answer => {
+    questionAnswers.forEach((answer, index) => {
+        const {formatedAnswer, rawAnswer} = shuffledAnswers[index];
         const div = document.createElement('div');
+        
+        div.innerHTML = formatedAnswer
         div.classList.add('answer', answer);
-        div.innerHTML = `<span class="answer-letter">${answer.toUpperCase()}</span><p>${answers[answer]}</p>`;
         div.onclick = function () {
-            if (answer === correct) {
+            if (rawAnswer === correct) {
                 this.classList.add('correct')
                 callback(true)
             } else {
