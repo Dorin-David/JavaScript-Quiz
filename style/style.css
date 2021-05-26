@@ -68,7 +68,7 @@ code.hljs {
     "e .";
 }
 
-.question {
+.answer {
   flex: 0 1 220px;
   margin: 0.5rem;
   padding: 0.7rem;
@@ -79,26 +79,26 @@ code.hljs {
   background: #fff;
 }
 
-.question:not(.correct, .incorrect):hover {
+.answer:not(.correct, .incorrect):hover {
   cursor: pointer;
   border: 2px solid darkgray;
   transform: scale(1.05);
 }
 
-.question.disabled {
+.answer.disabled {
   border: 2px solid darkgray;
 }
-.question.correct {
+.answer.correct {
   transition: none;
   border: 2px solid rgb(32, 168, 32);
 }
 
-.question.incorrect {
+.answer.incorrect {
   transition: none;
   border: 2px solid rgb(221, 99, 85);
 }
 
-.question.disabled:hover {
+.answer.disabled:hover {
   cursor: initial;
   transform: initial;
 }
@@ -113,7 +113,7 @@ code.hljs {
   color: var(--pale-gold);
 }
 
-.question-letter {
+.answer-letter {
   font-size: 1.3rem;
   background: var(--pale-gold);
   padding: 7px;
@@ -121,7 +121,7 @@ code.hljs {
   margin-right: 0.4rem;
 }
 
-.question p {
+.answer p {
   display: inline-block;
   font-size: 1.2rem;
 }

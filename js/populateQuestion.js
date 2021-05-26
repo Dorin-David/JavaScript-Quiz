@@ -17,8 +17,8 @@ function populateQuestion(question, callback) {
     //populate answers
     questionAnswers.forEach(answer => {
         const div = document.createElement('div');
-        div.classList.add('question', answer);
-        div.innerHTML = `<span class="question-letter">${answer.toUpperCase()}</span><p>${answers[answer]}</p>`;
+        div.classList.add('answer', answer);
+        div.innerHTML = `<span class="answer-letter">${answer.toUpperCase()}</span><p>${answers[answer]}</p>`;
         div.onclick = function () {
             if (answer === correct) {
                 this.classList.add('correct')
