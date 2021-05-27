@@ -12,7 +12,8 @@ pre {
   margin-top: 0.4rem;
 }
 
-h1 {
+h1, 
+h2 {
   font-weight: 600;
   text-align: center;
   color: #f6d62a;
@@ -38,6 +39,7 @@ p {
 
 code.hljs {
   width: 80%;
+  min-height: 200px;
   margin: auto;
   margin-top: 0;
   padding: 1rem;
@@ -128,7 +130,8 @@ code.hljs {
   font-size: 1.2rem;
 }
 
-.btn {
+.btn,
+.btn-review {
   cursor: pointer;
   width: 100px;
   margin: 1.3rem auto;
@@ -140,17 +143,41 @@ code.hljs {
   background: rgb(231, 203, 43);
 }
 
-.btn.start {
+.btn.start,
+.btn-review {
   transition: transform 0.5s ease;
 }
 
-.btn.start:hover {
+.btn.start:hover,
+.btn-review:hover {
   transform: scale(1.1);
 }
 
 .next-btn[disabled] {
   background: var(--btn-disabled);
   color: #232827;
+}
+
+/* <button class="review-btn previous" >Previous</button>
+<button class="review-btn next">Next</button>
+<button class="review-btn end">Restart</button> */
+
+.review-btn {
+  cursor: pointer;
+  width: 100px;
+  padding: 0.5rem;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 6px;
+  background: rgb(231, 203, 43);
+}
+.review-btn.previous {
+  margin-left: 2rem;
+}
+
+.review-btn.end {
+  display: block;
+  margin: 1.2rem auto;
 }
 
 .a {
@@ -170,7 +197,9 @@ code.hljs {
 }
 
 .score {
-  width: 200px;
-  margin: auto;
-  font-size: 1.3rem;
+  width: 250px;
+  margin: 0 auto;
+  margin-top: 70px;
+  font-size: 1.4rem;
+  text-align: center;
 }

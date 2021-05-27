@@ -1,12 +1,14 @@
-import { shuffleAnswers } from './utils.js'
+import { shuffleAnswers } from './utils.js';
+
+const questionTitle = document.querySelector('.question-title');
+const questionCode = document.querySelector('#question-code');
+const options = document.querySelector('.answers-wrapper');
 
 function populateQuestion(question, callback) {
-    const questionTitle = document.querySelector('.question-title');
-    const questionCode = document.querySelector('#question-code');
-    const options = document.querySelector('.answers-wrapper');
+
     const { title, code, answers, correct } = question;
 
-    questionTitle.textContent = title + '?';
+    questionTitle.textContent = title;
     questionCode.textContent = code;
 
     //clear previous options
@@ -18,22 +20,25 @@ function populateQuestion(question, callback) {
 
     const shuffledAnswers = shuffleAnswers(answers);
 
+
     //populate answers
     questionAnswers.forEach((answer, index) => {
-        const {formatedAnswer, rawAnswer} = shuffledAnswers[index];
+        const { formatedAnswer, rawAnswer } = shuffledAnswers[index];
         const div = document.createElement('div');
-        
+       
+
         div.innerHTML = formatedAnswer
         div.classList.add('answer', answer);
         div.onclick = function () {
+            
             if (rawAnswer === correct) {
                 this.classList.add('correct')
-                callback(true)
+                callback(true);       
             } else {
                 this.classList.add('incorrect')
-                callback(false)
+                callback(false)       
             }
-            [...document.querySelectorAll('.question')].forEach(answer => {
+            [...document.querySelectorAll('.answer')].forEach(answer => {
                 answer.onclick = null
                 answer.classList.add('disabled')
             })
