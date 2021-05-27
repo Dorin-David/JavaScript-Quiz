@@ -1,13 +1,11 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
-
 :root {
   --pale-gold: rgb(231, 203, 43);
   --btn-disabled: rgb(237, 214, 85);
 }
 
 body {
-  font-family: "Roboto", sans-serif;
-  background: #f6f6f6;
+  font-family: sans-serif;
+  background: #1c1b1b;
 }
 
 pre {
@@ -15,21 +13,22 @@ pre {
 }
 
 h1 {
-  color: #cab440;
   font-weight: 600;
   text-align: center;
+  color: #f6d62a;
 }
 
 p {
-  font-size: 1.1rem;
   margin: 0.5rem 2rem;
+  font-size: 1.1rem;
+  color: white;
   line-height: 1.4;
 }
 
 .credits {
   margin-top: 0;
   font-size: 0.8rem;
-  color: rgb(131, 125, 125);
+  color: rgb(166, 158, 158);
 }
 
 .credits a {
@@ -41,8 +40,9 @@ code.hljs {
   width: 80%;
   margin: auto;
   margin-top: 0;
-  font-size: 1.2rem;
   padding: 1rem;
+  font-size: 1.2rem;
+  background: #0e0e0e;
   border-radius: 6px;
 }
 
@@ -72,11 +72,13 @@ code.hljs {
   flex: 0 1 220px;
   margin: 0.5rem;
   padding: 0.7rem;
+  display: flex;
+  align-items: center;
   border: 2px solid #121212;
   border-radius: 6px;
+  background: #2b2929;
   color: #363535;
   transition: all 0.6s ease;
-  background: #fff;
 }
 
 .answer:not(.correct, .incorrect):hover {
@@ -89,13 +91,13 @@ code.hljs {
   border: 2px solid darkgray;
 }
 .answer.correct {
-  transition: none;
   border: 2px solid rgb(32, 168, 32);
+  transition: none;
 }
 
 .answer.incorrect {
-  transition: none;
   border: 2px solid rgb(221, 99, 85);
+  transition: none;
 }
 
 .answer.disabled:hover {
@@ -108,17 +110,17 @@ code.hljs {
   margin: auto;
   margin-bottom: 0;
   padding: 0.5rem 1rem;
-  background: #121212;
   border-radius: 6px;
+  background: #0c0b0b;
   color: var(--pale-gold);
 }
 
 .answer-letter {
-  font-size: 1.3rem;
-  background: var(--pale-gold);
-  padding: 7px;
-  border-radius: 6px;
   margin-right: 0.4rem;
+  padding: 7px;
+  font-size: 1.3rem;
+  border-radius: 6px;
+  background: var(--pale-gold);
 }
 
 .answer p {
@@ -127,16 +129,15 @@ code.hljs {
 }
 
 .btn {
-  width: 100px;
   cursor: pointer;
-  background: rgb(231, 203, 43);
-  border: none;
-  outline: none;
-  padding: 0.5rem;
-  font-size: 1.2rem;
-  border-radius: 6px;
-  display: block;
+  width: 100px;
   margin: 1.3rem auto;
+  padding: 0.5rem;
+  display: block;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 6px;
+  background: rgb(231, 203, 43);
 }
 
 .btn.start {
@@ -148,8 +149,8 @@ code.hljs {
 }
 
 .next-btn[disabled] {
-  color: #232827;
   background: var(--btn-disabled);
+  color: #232827;
 }
 
 .a {
@@ -169,7 +170,7 @@ code.hljs {
 }
 
 .score {
-  font-size: 1.3rem;
-  margin: auto;
   width: 200px;
+  margin: auto;
+  font-size: 1.3rem;
 }
