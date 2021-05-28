@@ -55,7 +55,7 @@ code.hljs {
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 .answers-wrapper {
@@ -157,10 +157,6 @@ code.hljs {
   background: var(--btn-disabled);
   color: #232827;
 }
-
-/* <button class="review-btn previous" >Previous</button>
-<button class="review-btn next">Next</button>
-<button class="review-btn end">Restart</button> */
 
 .review-btn {
   cursor: pointer;
