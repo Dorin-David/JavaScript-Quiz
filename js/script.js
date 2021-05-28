@@ -10,7 +10,7 @@ const codeSandBox = document.querySelector('.sand-box');
 const reviewCodeSandbox = document.querySelector('.review')
 const score = document.querySelector('.score-wrapper');
 const reviewButton = document.querySelector('.btn-review');
-const endReviewButton = document.querySelector('.review-btn.end')
+const endReviewButton = document.querySelector('.review-btn.end');
 
 function startGame() {
     const answers = document.querySelectorAll('.answer');
@@ -18,16 +18,16 @@ function startGame() {
     codeSandBox.classList.toggle('hidden');
     score.classList.add('hidden');
 
-    //clean previous attempts
     for (let answer of answers) {
-        answer.classList.remove('correct', 'incorrect', 'disabled')
+        answer.classList.remove('correct', 'incorrect', 'disabled');
     }
+    nextButton.onclick = gamePlaying()
 }
 
 function gamePlaying() {
     let correctAnswers = 0;
     let index = 0;
-    let answers = shuffleArray([...questions]).slice(0, 2);
+    let answers = shuffleArray([...questions]);
 
     function checkAnswer(correct) {
         if (correct) {
@@ -62,7 +62,15 @@ function gamePlaying() {
             index = 0;
             answers = shuffleArray([...questions]).slice(0, 2)
 
-            restartButton.onclick = startGame;
+
+            console.log(`incorrect answers: ${incorrectAnswers.length}`)
+
+            if(incorrectAnswers.length > 0){
+                reviewButton.classList.remove('hidden');
+            } else {
+                reviewButton.classList.add('hidden')
+            }
+
             reviewButton.onclick = function () {
                 reviewCodeSandbox.classList.remove('hidden')
                 score.classList.add('hidden')
@@ -77,9 +85,9 @@ function gamePlaying() {
                 startGame()
             }
 
+            restartButton.onclick = startGame;
         }
     }
 }
 
 startButton.addEventListener('click', startGame);
-nextButton.addEventListener('click', gamePlaying())
