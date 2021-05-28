@@ -27,7 +27,7 @@ function startGame() {
 function gamePlaying() {
     let correctAnswers = 0;
     let index = 0;
-    let answers = shuffleArray([...questions]).slice(0, 2);
+    let answers = shuffleArray([...questions]);
 
     function checkAnswer(correct) {
         if (correct) {
