@@ -7,20 +7,19 @@ const reviewNextButton = document.querySelector('.review-btn.next');
 
 function reviewAnswers(incorrectAnswers) {
     let index = 0;
-
     function scrollReviewAnswers() {
-        const { title, code, correct, explanation } = incorrectAnswers[index];
-        reviewQuestionTitle.textContent = title;
-        reviewCode.textContent = code;
-        reviewCorrectAnswer.textContent = `Correct answer: ${correct}`;
-        reviewExplanation.textContent = explanation
+        const currentIncorrectAnswer = incorrectAnswers[index];
+
+        reviewQuestionTitle.textContent = currentIncorrectAnswer.getTitle();
+        reviewCode.textContent = currentIncorrectAnswer.getCode();
+        reviewCorrectAnswer.textContent = `Correct answer: ${currentIncorrectAnswer.getCorrect()}`;
+        reviewExplanation.textContent = currentIncorrectAnswer.getExplanation()
         hljs.highlightAll();
     }
 
     reviewPrevButton.onclick = function () {
         index === 0 ? index = incorrectAnswers.length : index--
-        scrollReviewAnswers();
-        
+        scrollReviewAnswers(); 
     }
 
     reviewNextButton.onclick = function () {

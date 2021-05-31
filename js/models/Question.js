@@ -3,12 +3,6 @@
 * */
 export class Question {
 
-    #title
-    #code
-    #answers
-    #correct
-    #explanation
-
     /**
      * Builds a new question
      * @param {String} title the question's title
@@ -18,11 +12,11 @@ export class Question {
      * @param {String} explanation the answer's explanation
      * */
     constructor(title, code, answers, correct, explanation) {
-        this.#title = title
-        this.#code = code
-        this.#answers = answers
-        this.#correct = correct
-        this.#explanation = explanation
+        this._title = title
+        this._code = code
+        this._answers = answers
+        this._correct = correct
+        this._explanation = explanation
     }
 
     /**
@@ -30,7 +24,7 @@ export class Question {
      * @return {String} the question's title
      * */
     getTitle () {
-        return this.#title
+        return this._title
     }
 
     /**
@@ -38,7 +32,7 @@ export class Question {
      * @return {String} the question's code
      * */
     getCode () {
-        return this.#code
+        return this._code
     }
 
     /**
@@ -46,7 +40,7 @@ export class Question {
      * @return {Array<Answer>} the question's answers
      * */
     getAnswers () {
-        return this.#answers
+        return this._answers
     }
 
     /**
@@ -54,7 +48,7 @@ export class Question {
      * @return {String} the question's correct answer
      * */
     getCorrect () {
-        return this.#correct
+        return this._correct
     }
 
     /**
@@ -62,7 +56,7 @@ export class Question {
      * @return {String} the question's correct answer explanation
      * */
     getExplanation () {
-        return this.#explanation
+        return this._explanation
     }
 
 }

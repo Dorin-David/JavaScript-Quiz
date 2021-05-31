@@ -1,9 +1,11 @@
-import {shuffleArray} from "../utils/shuffleArray.js";
-import {questions} from "../questions/questions.js";
+import { fetchQuestions } from '../utils/fetchQuestions.js'
+
+
+// import { shuffleArray } from "../utils/shuffleArray.js";
+// import { questions } from "../questions/questions.js";
 import populateQuestion from "../populateQuestion.js";
 import reviewAnswers from "../reviewAnswers.js";
 
-const startButton = document.querySelector('.btn.start');
 const nextButton = document.querySelector('.next-btn');
 const descriptionBox = document.querySelector('.description');
 const codeSandBox = document.querySelector('.sand-box');
@@ -17,7 +19,7 @@ const endReviewButton = document.querySelector('.review-btn.end');
 * */
 export class Game {
 
-    constructor() {}
+    constructor() { }
 
     startGame() {
         const answers = document.querySelectorAll('.answer');
@@ -34,7 +36,10 @@ export class Game {
     gamePlaying() {
         let correctAnswers = 0;
         let index = 0;
-        let answers = shuffleArray([...questions]);
+        // let answers = shuffleArray([...questions]);
+        let answers = fetchQuestions();
+        // const self = this;
+        // debugger
 
 
         function checkAnswer(correct) {
@@ -44,36 +49,36 @@ export class Game {
                     nextButton.classList.remove('shake-rotate');
                 }, 300)
                 correctAnswers++
-                answers[index].isCorrect = true
+                // answers[index].isCorrect = true
+            } else {
+                answers.markAsIncorrect(index)
             }
             index++
             nextButton.removeAttribute('disabled')
         }
 
-        populateQuestion(answers[index], checkAnswer)
+        populateQuestion(answers.getQuestions()[index], checkAnswer)
 
-        return function () {
+        return () => {
             nextButton.setAttribute('disabled', 'disabled')
 
-            if (index < answers.length) {
-                populateQuestion(answers[index], checkAnswer)
+            if (index < answers.getQuestions().length) {
+                populateQuestion(answers.getQuestions()[index], checkAnswer)
             } else {
                 const finalScore = score.firstElementChild;
                 const restartButton = finalScore.nextElementSibling;
-                const incorrectAnswers = answers.filter(q => !q.isCorrect);
+                const incorrectAnswers = answers.getIncorrectAnswers();
 
                 codeSandBox.classList.toggle('hidden');
                 score.classList.remove('hidden');
-                finalScore.textContent = `correct answers: ${correctAnswers}/${answers.length}`
+                finalScore.textContent = `correct answers: ${correctAnswers}/${answers.getQuestions().length}`
 
                 correctAnswers = 0;
                 index = 0;
-                answers = shuffleArray([...questions]).slice(0, 2)
-
-
-                console.log(`incorrect answers: ${incorrectAnswers.length}`)
-
-                if(incorrectAnswers.length > 0){
+                // answers = shuffleArray([...questions])
+                answers.shuffleQuestions()
+                
+                if (incorrectAnswers.length > 0) {
                     reviewButton.classList.remove('hidden');
                 } else {
                     reviewButton.classList.add('hidden')
@@ -84,16 +89,19 @@ export class Game {
                     score.classList.add('hidden')
                     if (incorrectAnswers.length > 0) {
                         reviewAnswers(incorrectAnswers);
+                        // reviewAnswers(answers.getIncorrectQuestions())
+
                         //highlight code
                         hljs.highlightAll();
                     }
                 }
-                endReviewButton.onclick = function () {
+                endReviewButton.onclick = () => {
                     reviewCodeSandbox.classList.add('hidden')
-                    startGame()
+                    debugger
+                    this.startGame()
                 }
 
-                restartButton.onclick = startGame;
+                restartButton.onclick = () => this.startGame();
             }
         }
     }
