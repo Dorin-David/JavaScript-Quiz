@@ -1,4 +1,4 @@
-import { shuffleAnswers } from './utils.js';
+import {shuffleAnswers} from "./utils/shuffleAnswers.js";
 
 const questionTitle = document.querySelector('.question-title');
 const questionCode = document.querySelector('#question-code');

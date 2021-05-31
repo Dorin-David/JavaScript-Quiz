@@ -1,7 +1,15 @@
 /*
 The Fisher-Yates algorithm, from https://javascript.info/array-methods (shuffle array task)
 */
-function shuffleArray(array) {
+
+/**
+ * Shuffle an array by using the Fisher-Yates algorithm.
+ * @param {Array<any>} array - The array to shuffle.
+ * @retun {Array<any>} the shuffled array.
+ */
+export function shuffleArray(array) {
+    // the for (...) below could be rewritten as: forEach((element, index) => { ... } )
+    // see: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach?retiredLocale=it
     for (let i = array.length - 1; i > 0; i--) {
         let j = Math.floor(Math.random() * (i + 1)); // random index from 0 to i
 
@@ -14,19 +22,3 @@ function shuffleArray(array) {
 
     return array
 }
-
-
-function shuffleAnswers(answers) {
-    const letters = ['a', 'b', 'c', 'd', 'e', 'f'];
-    const answersToArray = shuffleArray(Object.keys(answers)).map((answer, ind) => {
-        return {
-            formatedAnswer: `<span class="answer-letter">${letters[ind].toUpperCase()}</span><p>${answers[answer]}</p>`, 
-            rawAnswer: answers[answer]
-        }
-    })
-
-    return answersToArray
-}
-
-
-export { shuffleArray, shuffleAnswers }
