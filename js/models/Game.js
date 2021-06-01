@@ -1,10 +1,6 @@
 import { Questions } from '../models/Questions.js';
-import {  questions as questionsList } from "../questions/questions.js";
+import { questions as questionsList } from "../questions/questions.js";
 
-
-
-// import { shuffleArray } from "../utils/shuffleArray.js";
-// import { questions } from "../questions/questions.js";
 import populateQuestion from "../populateQuestion.js";
 import reviewAnswers from "../reviewAnswers.js";
 
@@ -21,7 +17,17 @@ const endReviewButton = document.querySelector('.review-btn.end');
 * */
 export class Game {
 
-    constructor() { }
+    constructor(time, numberOfQuestions = 5) {
+
+        if (time) {
+            this._time = 10
+        } else {
+            this._time = Infinity
+        }
+
+        this._numberOfQuestions = numberOfQuestions
+
+    }
 
     startGame() {
         const answers = document.querySelectorAll('.answer');
@@ -38,10 +44,18 @@ export class Game {
     gamePlaying() {
         let correctAnswers = 0;
         let index = 0;
+        let timeCounter = this._time;
+        let timer = setInterval(() => {
+            timeCounter--
+            console.log(timeCounter)
+            if(timeCounter === 0) endGame()
+        }, 1000)
         let questions = new Questions(questionsList);
 
         questions.fetchQuestions()
-        questions.shuffleQuestions();
+        questions.shuffleQuestions()
+        questions.getPortionOfQuestions(this._numberOfQuestions)
+
 
         function checkAnswer(correct) {
             if (correct) {
@@ -57,47 +71,57 @@ export class Game {
             nextButton.removeAttribute('disabled')
         }
 
+        const endGame = () => {
+            const finalScore = score.firstElementChild;
+            const restartButton = finalScore.nextElementSibling;
+            const incorrectAnswers = questions.getIncorrectAnswers();
+
+            codeSandBox.classList.toggle('hidden');
+            score.classList.remove('hidden');
+            finalScore.textContent = `correct answers: ${correctAnswers}/${questions.getQuestions.length}`
+
+            correctAnswers = 0;
+            index = 0;
+            timeCounter = this._time;
+            questions = new Questions(questionsList);
+            clearInterval(timer);
+
+            if (incorrectAnswers.length > 0) {
+                reviewButton.classList.remove('hidden');
+            } else {
+                reviewButton.classList.add('hidden')
+            }
+
+            reviewButton.onclick = function () {
+                reviewCodeSandbox.classList.remove('hidden')
+                score.classList.add('hidden')
+                if (incorrectAnswers.length > 0) {
+                    reviewAnswers(incorrectAnswers);
+                    //highlight code
+                    hljs.highlightAll();
+                }
+            }
+            endReviewButton.onclick = () => {
+                reviewCodeSandbox.classList.add('hidden')
+                this.startGame()
+                timer = setInterval(() => {
+                    timeCounter--
+                    if(timeCounter === 0) endGame()
+                }, 1000)
+            }
+
+            restartButton.onclick = () => this.startGame();
+        }
+
         populateQuestion(questions.getQuestions[index], checkAnswer)
 
         return () => {
             nextButton.setAttribute('disabled', 'disabled')
 
-            if (index < questions.getQuestions.length) {
+            if (index < questions.getQuestions.length && timeCounter > 0) {
                 populateQuestion(questions.getQuestions[index], checkAnswer)
             } else {
-                const finalScore = score.firstElementChild;
-                const restartButton = finalScore.nextElementSibling;
-                const incorrectAnswers = questions.getIncorrectAnswers();
-
-                codeSandBox.classList.toggle('hidden');
-                score.classList.remove('hidden');
-                finalScore.textContent = `correct answers: ${correctAnswers}/${questions.getQuestions.length}`
-
-                correctAnswers = 0;
-                index = 0;
-                questions = new Questions(questionsList)
-
-                if (incorrectAnswers.length > 0) {
-                    reviewButton.classList.remove('hidden');
-                } else {
-                    reviewButton.classList.add('hidden')
-                }
-
-                reviewButton.onclick = function () {
-                    reviewCodeSandbox.classList.remove('hidden')
-                    score.classList.add('hidden')
-                    if (incorrectAnswers.length > 0) {
-                        reviewAnswers(incorrectAnswers);
-                        //highlight code
-                        hljs.highlightAll();
-                    }
-                }
-                endReviewButton.onclick = () => {
-                    reviewCodeSandbox.classList.add('hidden')
-                    this.startGame()
-                }
-
-                restartButton.onclick = () => this.startGame();
+                endGame()
             }
         }
     }

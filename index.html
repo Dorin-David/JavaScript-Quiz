@@ -24,9 +24,47 @@
       </p>
         <p class="credits">The questions of this quiz are taken from a very popular GitHub 
           <a href="https://github.com/lydiahallie/javascript-questions" target="_blank">repo</a>. We'll soon add our questions. Feel free to contribute! </p>
-      <button class="btn start">Start</button>
+      <!-- <button class="btn start">Start</button> -->
     </div>
     <!-- end description -->
+    
+    <!-- game options -->
+    <div class="game-options">
+      <h1>Get Ready!</h1>
+        <!-- time options -->
+        <div class="options-wrapper time">
+           <button class='option-btn time' data-time="true">Time</button>
+           <button class='option-btn time'>No Time</button>
+        </div>
+        <!-- end time options -->
+        <!-- difficulty options -->
+        <h2>Difficulty</h2>
+        <div class="options-wrapper">
+         <div class='option-btn difficulty' data-questions="10">
+           <button >Chill</button>
+           <p>10 questions</p>
+         </div>
+         <div class='option-btn difficulty' data-questions="20">
+           <button >Easy</button>
+           <p>20 questions</p>
+         </div>
+         <div class='option-btn difficulty' data-questions="40">
+           <button >Medium</button>
+           <p>40 questions</p>
+         </div>
+         <div class='option-btn difficulty' data-questions="60">
+           <button >Hard</button>
+           <p>60 questions</p>
+         </div>
+         <div class='option-btn difficulty'>
+           <button>JS wizard</button>
+           <p>we greet you sensei</p>
+         </div>
+       </div>
+        <!-- end difficulty options -->
+        <button class="btn start">Start</button>
+    </div>
+        <!-- end game options -->
 
     <!-- sandobox for questions -->
     <div class="sand-box hidden">

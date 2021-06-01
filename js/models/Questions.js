@@ -47,7 +47,7 @@ export class Questions {
     /**
      * Map the questions list to correct format
      * */
-     fetchQuestions() {
+    fetchQuestions() {
         this._questions = mapQuestions(this._questions)
     }
 
@@ -73,4 +73,12 @@ export class Questions {
     getIncorrectAnswers() {
         return this._questions.filter(a => a.isIncorrect)
     }
+    /**
+            * Get a portion of the questions
+            *   @param {Number} size the number of questions to retrieve
+            * */
+    getPortionOfQuestions(size) {
+        this._questions = this._questions.slice(0, size)
+    }
+
 }
