@@ -36,10 +36,8 @@ export class Game {
     gamePlaying() {
         let correctAnswers = 0;
         let index = 0;
-        // let answers = shuffleArray([...questions]);
-        let answers = fetchQuestions();
-        // const self = this;
-        // debugger
+        let questions = fetchQuestions();
+        questions.shuffleQuestions()
 
 
         function checkAnswer(correct) {
@@ -49,34 +47,32 @@ export class Game {
                     nextButton.classList.remove('shake-rotate');
                 }, 300)
                 correctAnswers++
-                // answers[index].isCorrect = true
             } else {
-                answers.markAsIncorrect(index)
+                questions.marAnswerkAsIncorrect(index)
             }
             index++
             nextButton.removeAttribute('disabled')
         }
 
-        populateQuestion(answers.getQuestions()[index], checkAnswer)
+        populateQuestion(questions.getQuestions[index], checkAnswer)
 
         return () => {
             nextButton.setAttribute('disabled', 'disabled')
 
-            if (index < answers.getQuestions().length) {
-                populateQuestion(answers.getQuestions()[index], checkAnswer)
+            if (index < questions.getQuestions.length) {
+                populateQuestion(questions.getQuestions[index], checkAnswer)
             } else {
                 const finalScore = score.firstElementChild;
                 const restartButton = finalScore.nextElementSibling;
-                const incorrectAnswers = answers.getIncorrectAnswers();
+                const incorrectAnswers = questions.getIncorrectAnswers();
 
                 codeSandBox.classList.toggle('hidden');
                 score.classList.remove('hidden');
-                finalScore.textContent = `correct answers: ${correctAnswers}/${answers.getQuestions().length}`
+                finalScore.textContent = `correct answers: ${correctAnswers}/${questions.getQuestions.length}`
 
                 correctAnswers = 0;
                 index = 0;
-                // answers = shuffleArray([...questions])
-                answers.shuffleQuestions()
+                questions.shuffleQuestions()
                 
                 if (incorrectAnswers.length > 0) {
                     reviewButton.classList.remove('hidden');
@@ -89,15 +85,12 @@ export class Game {
                     score.classList.add('hidden')
                     if (incorrectAnswers.length > 0) {
                         reviewAnswers(incorrectAnswers);
-                        // reviewAnswers(answers.getIncorrectQuestions())
-
                         //highlight code
                         hljs.highlightAll();
                     }
                 }
                 endReviewButton.onclick = () => {
                     reviewCodeSandbox.classList.add('hidden')
-                    debugger
                     this.startGame()
                 }
 

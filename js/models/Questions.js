@@ -21,7 +21,7 @@ export class Questions {
      * Returns the questions list
      * @return {Array<Question>} the questions list
      * */
-    getQuestions() {
+    get getQuestions() {
         return this._questions
     }
 
@@ -53,7 +53,7 @@ export class Questions {
      *   @param {Number} index the index of the question to be marked as incorrect
      * */
 
-  markAsIncorrect(index){
+  marAnswerkAsIncorrect(index){
     this._questions[index].isIncorrect = true
  }
 
