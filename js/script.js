@@ -1,6 +1,9 @@
-import {Game} from "./models/Game.js";
+import { getGameOptions } from './selectGameOptions.js'
 
 const startButton = document.querySelector('.btn.start');
-const game = new Game()
 
-startButton.addEventListener('click', () => game.startGame());
+startButton.addEventListener('click', () => {
+    const game = getGameOptions();
+    game.startGame()
+
+});

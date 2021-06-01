@@ -7,8 +7,10 @@ import reviewAnswers from "../reviewAnswers.js";
 const nextButton = document.querySelector('.next-btn');
 const descriptionBox = document.querySelector('.description');
 const codeSandBox = document.querySelector('.sand-box');
+const optionsBox = document.querySelector('.game-options');
 const reviewCodeSandbox = document.querySelector('.review')
 const score = document.querySelector('.score-wrapper');
+const userTimeCounter = document.querySelector('.timer')
 const reviewButton = document.querySelector('.btn-review');
 const endReviewButton = document.querySelector('.review-btn.end');
 
@@ -17,10 +19,10 @@ const endReviewButton = document.querySelector('.review-btn.end');
 * */
 export class Game {
 
-    constructor(time, numberOfQuestions = 5) {
+    constructor(time, numberOfQuestions) {
 
         if (time) {
-            this._time = 10
+            this._time = 60
         } else {
             this._time = Infinity
         }
@@ -32,8 +34,12 @@ export class Game {
     startGame() {
         const answers = document.querySelectorAll('.answer');
         descriptionBox.classList.add('hidden');
+        optionsBox.classList.add('hidden')
         codeSandBox.classList.toggle('hidden');
         score.classList.add('hidden');
+        if(this._time <= 60){
+            userTimeCounter.classList.remove('hidden')
+        }
 
         for (let answer of answers) {
             answer.classList.remove('correct', 'incorrect', 'disabled');
@@ -47,7 +53,7 @@ export class Game {
         let timeCounter = this._time;
         let timer = setInterval(() => {
             timeCounter--
-            console.log(timeCounter)
+            userTimeCounter.textContent = timeCounter;
             if(timeCounter === 0) endGame()
         }, 1000)
         let questions = new Questions(questionsList);
@@ -78,11 +84,13 @@ export class Game {
 
             codeSandBox.classList.toggle('hidden');
             score.classList.remove('hidden');
+            userTimeCounter.classList.add('hidden')
             finalScore.textContent = `correct answers: ${correctAnswers}/${questions.getQuestions.length}`
 
             correctAnswers = 0;
             index = 0;
             timeCounter = this._time;
+            userTimeCounter.textContent = 60;
             questions = new Questions(questionsList);
             clearInterval(timer);
 
@@ -106,6 +114,7 @@ export class Game {
                 this.startGame()
                 timer = setInterval(() => {
                     timeCounter--
+                    userTimeCounter.textContent = timeCounter;
                     if(timeCounter === 0) endGame()
                 }, 1000)
             }

@@ -34,17 +34,17 @@
         <!-- time options -->
         <div class="options-wrapper time">
            <button class='option-btn time' data-time="true">Time</button>
-           <button class='option-btn time'>No Time</button>
+           <button class='option-btn time selected'>No Time</button>
         </div>
         <!-- end time options -->
         <!-- difficulty options -->
         <h2>Difficulty</h2>
         <div class="options-wrapper">
          <div class='option-btn difficulty' data-questions="10">
-           <button >Chill</button>
+           <button>Chill</button>
            <p>10 questions</p>
          </div>
-         <div class='option-btn difficulty' data-questions="20">
+         <div class='option-btn difficulty selected' data-questions="20">
            <button >Easy</button>
            <p>20 questions</p>
          </div>
@@ -56,7 +56,7 @@
            <button >Hard</button>
            <p>60 questions</p>
          </div>
-         <div class='option-btn difficulty'>
+         <div class='option-btn difficulty' data-questions="0">
            <button>JS wizard</button>
            <p>we greet you sensei</p>
          </div>
@@ -66,10 +66,13 @@
     </div>
         <!-- end game options -->
 
+    <!-- <p class='timer hidden'>60</p> -->
+
     <!-- sandobox for questions -->
     <div class="sand-box hidden">
       <h3 class="question-title"></h3>
       <pre><code class="javascript" id="question-code"></code></pre>
+      <p class='timer hidden'>60</p>
       <div class="answers-wrapper"></div>
       <button class="btn next-btn" disabled>Next</button>
     </div>

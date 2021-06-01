@@ -12,7 +12,7 @@ pre {
   margin-top: 0.4rem;
 }
 
-h1, 
+h1,
 h2 {
   font-weight: 600;
   text-align: center;
@@ -48,6 +48,17 @@ code.hljs {
   border-radius: 6px;
 }
 
+.timer {
+  font-size: 1.8rem;
+  text-align: center;
+  color: var(--pale-gold);
+}
+
+.game-options {
+  width: 90%;
+  margin: auto;
+}
+
 .options-wrapper {
   width: 90%;
   margin: auto;
@@ -65,6 +76,13 @@ code.hljs {
   font-size: 1.1rem;
 }
 
+.options-wrapper button.selected,
+.option-btn.difficulty.selected button {
+  cursor: initial;
+  background: rgb(190, 167, 36);
+  border: 2px solid rgb(231, 203, 43);
+}
+
 .option-btn {
   display: flex;
   flex-direction: column;
@@ -73,7 +91,7 @@ code.hljs {
 }
 
 .options-wrapper button + p {
-  color: #C2B4B4;
+  color: #c2b4b4;
 }
 
 .options-wrapper.time {
@@ -84,7 +102,6 @@ code.hljs {
   height: 70px;
   margin: 1rem;
 }
-
 
 .sand-box {
   min-width: 500px;
