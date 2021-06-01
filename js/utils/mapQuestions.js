@@ -1,4 +1,3 @@
-import {questions} from "../questions/questions.js";
 import {Question} from "../models/Question.js";
 import {Questions} from "../models/Questions.js";
 import {Answer} from "../models/Answer.js";
@@ -17,14 +16,8 @@ function mapAnswers (answers) {
  * @param {Array <String>} questions the arrya of questions as string
  * @return {Questions} the questions object
  * */
-function mapQuestions (questions) {
+export function mapQuestions (questions) {
     return new Questions(questions.map((q) => new Question(q.title, q.code, mapAnswers(q.answers), q.correct, q.explanation)))
 }
 
-/**
- * Fetch the questions list
- * @return {Questions} the fetched questions
- * */
-export function fetchQuestions() {
-    return mapQuestions(questions)
-}
+

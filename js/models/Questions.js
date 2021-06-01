@@ -1,4 +1,6 @@
 import { shuffleArray } from "../utils/shuffleArray.js";
+import { mapQuestions } from '../utils/mapQuestions.js';
+
 
 
 /* @Class
@@ -43,25 +45,32 @@ export class Questions {
     }
 
     /**
+     * Map the questions list to correct format
+     * */
+     fetchQuestions() {
+        this._questions = mapQuestions(this._questions)
+    }
+
+    /**
      * Shuffles the current questions
      * */
     shuffleQuestions() {
-        this._questions = shuffleArray([...this._questions])
+        this._questions = shuffleArray([...this._questions.getQuestions])
     }
- /**
-     * Marks the answer as incorrect
-     *   @param {Number} index the index of the question to be marked as incorrect
-     * */
+    /**
+        * Marks the answer as incorrect
+        *   @param {Number} index the index of the question to be marked as incorrect
+        * */
 
-  marAnswerkAsIncorrect(index){
-    this._questions[index].isIncorrect = true
- }
+    marAnswerkAsIncorrect(index) {
+        this._questions[index].isIncorrect = true
+    }
 
-  /**
-  * Return incorrect answers
-  
-  * */
- getIncorrectAnswers(){
-     return this._questions.filter(a => a.isIncorrect)
- }
+    /**
+    * Return incorrect answers
+    
+    * */
+    getIncorrectAnswers() {
+        return this._questions.filter(a => a.isIncorrect)
+    }
 }

@@ -1,4 +1,6 @@
-import { fetchQuestions } from '../utils/fetchQuestions.js'
+import { Questions } from '../models/Questions.js';
+import {  questions as questionsList } from "../questions/questions.js";
+
 
 
 // import { shuffleArray } from "../utils/shuffleArray.js";
@@ -36,9 +38,10 @@ export class Game {
     gamePlaying() {
         let correctAnswers = 0;
         let index = 0;
-        let questions = fetchQuestions();
-        questions.shuffleQuestions()
+        let questions = new Questions(questionsList);
 
+        questions.fetchQuestions()
+        questions.shuffleQuestions();
 
         function checkAnswer(correct) {
             if (correct) {
@@ -72,8 +75,8 @@ export class Game {
 
                 correctAnswers = 0;
                 index = 0;
-                questions.shuffleQuestions()
-                
+                questions = new Questions(questionsList)
+
                 if (incorrectAnswers.length > 0) {
                     reviewButton.classList.remove('hidden');
                 } else {
