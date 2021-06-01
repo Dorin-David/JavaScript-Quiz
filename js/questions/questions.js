@@ -75,131 +75,131 @@
         The string 'Lydia' is a truthy value. What we're actually asking, is "is this truthy value falsy?". This returns false.`
 
     },
-    // {
-    //     title: 'Which one is true?',
-    //     code: `
-    //     const bird = {
-    //         size: 'small',
-    //       };
+    {
+        title: 'Which one is true?',
+        code: `
+        const bird = {
+            size: 'small',
+          };
           
-    //       const mouse = {
-    //         name: 'Mickey',
-    //         small: true,
-    //       };`,
-    //       answers: {
-    //           a: "`mouse.bird.size` is not valid",
-    //           b: "`mouse[bird.size]` is not valid",
-    //           c: "`mouse[bird['size']]` is not valid",
-    //           d: "All of them are valid"
-    //       },
-    //       correct: "`mouse.bird.size` is not valid",
-    //       explanation: `In JavaScript, all object keys are strings (unless it's a Symbol). Even though we might not type them as strings, they are always converted into strings under the hood.
-    //       JavaScript interprets (or unboxes) statements. When we use bracket notation, it sees the first opening bracket [ and keeps going until it finds the closing bracket ]. Only then, it will evaluate the statement.          
-    //       mouse[bird.size]: First it evaluates bird.size, which is "small". mouse["small"] returns true
-    //       However, with dot notation, this doesn't happen. mouse does not have a key called bird, which means that mouse.bird is undefined. Then, we ask for the size using dot notation: mouse.bird.size. Since mouse.bird is undefined, we're actually asking undefined.size. 
-    //       This isn't valid, and will throw an error similar to Cannot read property "size" of undefined.`
-    // }, 
-    // {
-    //     title: `What's the output?`,
-    //     code: `
-    //     let c = { greeting: 'Hey!' };
-    //     let d;
+          const mouse = {
+            name: 'Mickey',
+            small: true,
+          };`,
+          answers: {
+              a: "`mouse.bird.size` is not valid",
+              b: "`mouse[bird.size]` is not valid",
+              c: "`mouse[bird['size']]` is not valid",
+              d: "All of them are valid"
+          },
+          correct: "`mouse.bird.size` is not valid",
+          explanation: `In JavaScript, all object keys are strings (unless it's a Symbol). Even though we might not type them as strings, they are always converted into strings under the hood.
+          JavaScript interprets (or unboxes) statements. When we use bracket notation, it sees the first opening bracket [ and keeps going until it finds the closing bracket ]. Only then, it will evaluate the statement.          
+          mouse[bird.size]: First it evaluates bird.size, which is "small". mouse["small"] returns true
+          However, with dot notation, this doesn't happen. mouse does not have a key called bird, which means that mouse.bird is undefined. Then, we ask for the size using dot notation: mouse.bird.size. Since mouse.bird is undefined, we're actually asking undefined.size. 
+          This isn't valid, and will throw an error similar to Cannot read property "size" of undefined.`
+    }, 
+    {
+        title: `What's the output?`,
+        code: `
+        let c = { greeting: 'Hey!' };
+        let d;
         
-    //     d = c;
-    //     c.greeting = 'Hello';
-    //     console.log(d.greeting);`,
-    //     answers: {
-    //         a: 'Hello',
-    //         b: 'Hey!',
-    //         c: 'undefined',
-    //         d: 'ReferenceError',
-    //         e: 'TypeError'
-    //     },
-    //     correct: 'Hello',
-    //     explanation: `In JavaScript, all objects interact by reference when setting them equal to each other.
-    //     First, variable c holds a value to an object. Later, we assign d with the same reference that c has to the object.
-    //     <img src="https://camo.githubusercontent.com/7fa22323daec0bc9742948c600eb9d951d28488132dcfb47e181d8b0a92b5f6e/68747470733a2f2f692e696d6775722e636f6d2f6b6f356b3066732e706e67" data-canonical-src="https://i.imgur.com/ko5k0fs.png" style="max-width:100%;" width="200">
-    //     When you change one object, you change all of them.`
-    // }, 
-    // {
-    //     title: `What's the output?`,
-    //     code: `
-    //     let a = 3;
-    //     let b = new Number(3);
-    //     let c = 3;
+        d = c;
+        c.greeting = 'Hello';
+        console.log(d.greeting);`,
+        answers: {
+            a: 'Hello',
+            b: 'Hey!',
+            c: 'undefined',
+            d: 'ReferenceError',
+            e: 'TypeError'
+        },
+        correct: 'Hello',
+        explanation: `In JavaScript, all objects interact by reference when setting them equal to each other.
+        First, variable c holds a value to an object. Later, we assign d with the same reference that c has to the object.
+        <img src="https://camo.githubusercontent.com/7fa22323daec0bc9742948c600eb9d951d28488132dcfb47e181d8b0a92b5f6e/68747470733a2f2f692e696d6775722e636f6d2f6b6f356b3066732e706e67" data-canonical-src="https://i.imgur.com/ko5k0fs.png" style="max-width:100%;" width="200">
+        When you change one object, you change all of them.`
+    }, 
+    {
+        title: `What's the output?`,
+        code: `
+        let a = 3;
+        let b = new Number(3);
+        let c = 3;
         
-    //     console.log(a == b);
-    //     console.log(a === b);
-    //     console.log(b === c);`,
-    //     answers: {
-    //         a: "`true` `false` `true`",
-    //         b: "`false` `false` `true`",
-    //         c: "`true` `false` `false`",
-    //         d: "`false` `true` `true`"
-    //     },
-    //     correct: "`true` `false` `false`",
-    //     explanation: `new Number() is a built-in function constructor. Although it looks like a number, it's not really a number: it has a bunch of extra features and is an object.
-    //     When we use the == operator, it only checks whether it has the same value. They both have the value of 3, so it returns true.
-    //     However, when we use the === operator, both value and type should be the same. It's not: new Number() is not a number, it's an object. Both return false.`
-    // }, 
-    // {
-    //     title: `What's the output?`,
-    //     code: `class Chameleon {
-    //         static colorChange(newColor) {
-    //           this.newColor = newColor;
-    //           return this.newColor;
-    //         }
+        console.log(a == b);
+        console.log(a === b);
+        console.log(b === c);`,
+        answers: {
+            a: "`true` `false` `true`",
+            b: "`false` `false` `true`",
+            c: "`true` `false` `false`",
+            d: "`false` `true` `true`"
+        },
+        correct: "`true` `false` `false`",
+        explanation: `new Number() is a built-in function constructor. Although it looks like a number, it's not really a number: it has a bunch of extra features and is an object.
+        When we use the == operator, it only checks whether it has the same value. They both have the value of 3, so it returns true.
+        However, when we use the === operator, both value and type should be the same. It's not: new Number() is not a number, it's an object. Both return false.`
+    }, 
+    {
+        title: `What's the output?`,
+        code: `class Chameleon {
+            static colorChange(newColor) {
+              this.newColor = newColor;
+              return this.newColor;
+            }
           
-    //         constructor({ newColor = 'green' } = {}) {
-    //           this.newColor = newColor;
-    //         }
-    //       }
+            constructor({ newColor = 'green' } = {}) {
+              this.newColor = newColor;
+            }
+          }
           
-    //       const freddie = new Chameleon({ newColor: 'purple' });
-    //       console.log(freddie.colorChange('orange'));`,
-    //       answers: {
-    //       a: 'orange',
-    //       b: 'purple',
-    //       c: 'green',
-    //       d: 'TypeError'
-    //     },
-    //     correct: 'TypeError',
-    //     explanation: `The colorChange function is static. Static methods are designed to live only on the constructor in which they are created, and cannot be passed down to any children. 
-    //     Since freddie is a child, the function is not passed down, and not available on the freddie instance: a TypeError is thrown.`
-    // },
-    // {
-    //     title: `What's the output?`,
-    //     code: `//we are in non-strict mode
-    //     let greeting;
-    //     greetign = {}; // Typo!
-    //     console.log(greetign);`,
-    //     answers: {
-    //     a: '{}',
-    //     b: 'ReferenceError: greetign is not defined',
-    //     c: 'undefined'
-    //     },
-    //     correct: '{}',
-    //     explanation: `It logs the object, because we just created an empty object on the global object! When we mistyped greeting as greetign, the JS interpreter actually saw this as global.greetign = {} (or window.greetign = {} in a browser).
-    //     In order to avoid this, we can use "use strict". This makes sure that you have declared a variable before setting it equal to anything.`
+          const freddie = new Chameleon({ newColor: 'purple' });
+          console.log(freddie.colorChange('orange'));`,
+          answers: {
+          a: 'orange',
+          b: 'purple',
+          c: 'green',
+          d: 'TypeError'
+        },
+        correct: 'TypeError',
+        explanation: `The colorChange function is static. Static methods are designed to live only on the constructor in which they are created, and cannot be passed down to any children. 
+        Since freddie is a child, the function is not passed down, and not available on the freddie instance: a TypeError is thrown.`
+    },
+    {
+        title: `What's the output?`,
+        code: `//we are in non-strict mode
+        let greeting;
+        greetign = {}; // Typo!
+        console.log(greetign);`,
+        answers: {
+        a: '{}',
+        b: 'ReferenceError: greetign is not defined',
+        c: 'undefined'
+        },
+        correct: '{}',
+        explanation: `It logs the object, because we just created an empty object on the global object! When we mistyped greeting as greetign, the JS interpreter actually saw this as global.greetign = {} (or window.greetign = {} in a browser).
+        In order to avoid this, we can use "use strict". This makes sure that you have declared a variable before setting it equal to anything.`
 
-    // },
-    // {
-    //    title: "What happens when we do this?",
-    //     code: `function bark() {
-    //         console.log('Woof!');
-    //       }
+    },
+    {
+       title: "What happens when we do this?",
+        code: `function bark() {
+            console.log('Woof!');
+          }
           
-    //       bark.animal = 'dog';`,
-    //       answers: {
-    //         a: "Nothing, this is totally fine!",
-    //         b: "`SyntaxError`. You cannot add properties to a function this way.",
-    //         c: "`'Woof'` gets logged.",
-    //         d: "`ReferenceError`"
-    //     },
-    //     correct: "Nothing, this is totally fine!",
-    //     explanation: `This is possible in JavaScript, because functions are objects! (Everything besides primitive types are objects)
-    //     A function is a special type of object. The code you write yourself isn't the actual function. The function is an object with properties. This property is invocable.`
-    // },
+          bark.animal = 'dog';`,
+          answers: {
+            a: "Nothing, this is totally fine!",
+            b: "`SyntaxError`. You cannot add properties to a function this way.",
+            c: "`'Woof'` gets logged.",
+            d: "`ReferenceError`"
+        },
+        correct: "Nothing, this is totally fine!",
+        explanation: `This is possible in JavaScript, because functions are objects! (Everything besides primitive types are objects)
+        A function is a special type of object. The code you write yourself isn't the actual function. The function is an object with properties. This property is invocable.`
+    },
     
     
     
