@@ -79,8 +79,8 @@ code.hljs {
 .options-wrapper button.selected,
 .option-btn.difficulty.selected button {
   cursor: initial;
-  background: rgb(190, 167, 36);
-  border: 2px solid rgb(231, 203, 43);
+  background: rgb(180, 158, 32);
+  border: 3px solid rgb(231, 203, 43);
 }
 
 .option-btn {
@@ -247,10 +247,55 @@ code.hljs {
   grid-area: d;
 }
 
+.e {
+  grid-area: e;
+}
+
 .score {
   width: 250px;
   margin: 0 auto;
   margin-top: 70px;
   font-size: 1.4rem;
   text-align: center;
+}
+
+@media screen and (max-width: 1000px) {
+  .sand-box {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .sand-box {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .sand-box {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .sand-box {
+    width: 100%;
+  }
+
+  .answers-wrapper {
+    width: 70%;
+    margin: auto;
+    grid-template-areas:
+      "a a"
+      "b b"
+      "c c"
+      "d d"
+      "e e";
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .answers-wrapper {
+    width: 70%;
+  }
 }
