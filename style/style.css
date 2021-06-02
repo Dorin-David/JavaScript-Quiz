@@ -318,17 +318,23 @@ code.hljs {
   .answers-wrapper {
     width: 70%;
     margin: auto;
-    grid-template-areas:
-      "a a"
-      "b b"
-      "c c"
-      "d d"
-      "e e";
+    grid-template-columns: 1fr;
+    grid-template-areas: initial;
+    grid-auto-rows: auto;
+  }
+
+  .answer {
+    grid-area: initial;
+    margin: 0.3rem;
   }
 }
+
 
 @media screen and (max-width: 600px) {
   .answers-wrapper {
     width: 70%;
   }
+
+  
 }
+
