@@ -1,0 +1,17 @@
+{
+  "name": "JavaScript-Quiz",
+  "version": "1.0.0",
+  "description": "A simple JavaScript quiz game",
+  "keywords": [
+    "javascript",
+    "quiz",
+    "game",
+    "questions"
+  ],
+  "homepage": "https://github.com/Dorin-David/JavaScript-Quiz#readme",
+  "main": "js/script.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "http-server ."
+  }
+}
