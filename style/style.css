@@ -9,7 +9,6 @@ body {
   background: #1c1b1b;
   position: relative;
   margin: 0;
-
 }
 
 nav {
@@ -20,7 +19,7 @@ nav {
   position: fixed;
   top: 0;
   left: 0;
-  background: #0f0f0f
+  background: #0f0f0f;
 }
 
 nav a {
@@ -31,8 +30,11 @@ nav a {
   color: white;
 }
 
-.settings {
+.settings-btn {
+  cursor: pointer;
   display: flex;
+  margin-left: auto;
+  margin-right: 1rem;
 }
 
 nav a:hover {
@@ -50,7 +52,7 @@ h2 {
   color: #f6d62a;
 }
 
- p {
+p {
   font-size: 1.1rem;
   color: white;
   line-height: 1.4;
@@ -292,8 +294,6 @@ h2 {
   font-size: 1.4rem;
   text-align: center;
 }
-
-
 
 @media screen and (max-width: 1000px) {
   .sand-box {

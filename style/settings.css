@@ -1,7 +1,8 @@
 .settings-wrapper {
     width: 100%;
     height: 100%;
-    position: absolute;
+    position: fixed;
+    overflow: auto;
     left: 0;
     right: 0;
     bottom: 0;
@@ -17,6 +18,25 @@
 
 .close-settings-btn:hover svg {
     stroke: red;
+}
+
+.go-back-setting-btn {
+    cursor: pointer;
+    margin-left: 1rem;
+}
+
+.back-to-top-btn {
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    z-index: 999;
+}
+
+.back-to-top-btn:hover svg {
+   stroke: var(--pale-gold);
 }
 
 .select-setting {
@@ -84,6 +104,12 @@
   }
 
   .theme-wrapper:hover h3 {
+    color: white;
+  }
+
+
+.theme-wrapper.selected {
+    border-color: var(--pale-gold);
     color: white;
 }
 
