@@ -10,7 +10,7 @@
     <!-- shake animation -->
     <link rel="stylesheet" href="./style/animation.css" />
     <!-- code style -->
-    <link rel="stylesheet" href="./code_styles/dracula.min.css" />
+    <link rel="stylesheet" href="./code_styles/github.min.css" />
     <!-- settings -->
     <link rel="stylesheet" href="./style/settings.css">
     <!-- code style scripts -->
@@ -117,15 +117,17 @@
        <!-- end options -->
 
       <div class='settings-themes'>
-        <pre><code class="javascript" id="demo-code">
-          export function shuffleArray(array) {
-            for (let i = array.length - 1; i > 0; i--) {
-                let j = Math.floor(Math.random() * (i + 1));
-                [array[i], array[j]] = [array[j], array[i]];
-            }     
-            return array
-        }
-        </code></pre>
+
+        <div class="theme-wrapper">
+          <img src="./public/assets/a11y-dark.JPG" alt="a11y-dark_theme">
+          <h3>A 11 Y Dark</h3>
+        </div>
+
+        <div class="theme-wrapper">
+          <img src="./public/assets/atom-one-dark.JPG" alt="a11y-dark_theme">
+          <h3>Atom One Dark</h3>
+        </div>
+
       </div>
 
     </div>
@@ -133,6 +135,6 @@
     <!-- end settings -->
 
     <script src="./js/script.js" type="module"></script>
-    <script src='./js/selectStyle.js'></script>
+    <script src='./js/selectStyle.js' type="module"></script>
   </body>
 </html>
