@@ -30,10 +30,9 @@ nav a {
   color: white;
 }
 
-/* nav a:nth-child(2){
-  margin-left: auto;
-} */
-
+.settings {
+  display: flex;
+}
 nav a:hover {
   color: var(--pale-gold);
 }
