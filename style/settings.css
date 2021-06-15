@@ -22,7 +22,12 @@
 
 .go-back-setting-btn {
     cursor: pointer;
+    width: 40px;
     margin-left: 1rem;
+}
+
+.go-back-setting-btn:hover svg{
+    stroke: var(--pale-gold);
 }
 
 .back-to-top-btn {

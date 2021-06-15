@@ -38,7 +38,7 @@ goBackSettingsBtn.addEventListener('click', () => {
  })
 
 backToTopButton.addEventListener('click', () => {
-    goBackSettingsBtn.scrollIntoView()
+    closeSettingsBtn.scrollIntoView()
 })
 
 themeBtn.addEventListener('click', () => {
