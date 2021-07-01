@@ -10,6 +10,7 @@ const themes = {
     "Cupertino": "cupertino.min",
     "Darcula": "darcula.min",
     "Dark Violet": "dark-violet.min",
+    "Default": "an-old-hope",
     "Dracula": "dracula.min",
     "Edge Dark": "edge-dark.min",
     "Edge Light": "edge-light.min",
