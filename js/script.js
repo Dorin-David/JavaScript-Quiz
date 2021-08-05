@@ -6,7 +6,7 @@ const startButton = document.querySelector('.btn.start');
 (function () {
     const currentStyle = document.querySelector('#code-style');
     const currentThemePath = localStorage.getItem('currentThemePath')
-    if (currentThemePath) currentStyle.href = `./code_styles/${currentThemePath}.css`;
+    if (currentThemePath) currentStyle.href = `../code_styles/${currentThemePath}.css`;
 
 }())
 

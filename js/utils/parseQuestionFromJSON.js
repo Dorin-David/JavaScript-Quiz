@@ -2,8 +2,7 @@ import { parseQuestionAnswers } from './parseQuestionAnswers.js';
 
 
 export function parseQuestionFromJSON(questions) {
-
-    return JSON.parse(questions).map(question => {
+    return questions.data.map(question => {
         let q = {};
         q.title = question.question.split('\. ')[1]
         q.code = question.example.slice(1, -1).join('\n');

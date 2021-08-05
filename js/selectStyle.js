@@ -26,7 +26,7 @@ function selectTheme(){
     
             [...options].forEach(option => option.classList.remove('selected'));
             wrapper.classList.add('selected');
-            currentStyle.href = `./code_styles/${path}.css`;
+            currentStyle.href = `../code_styles/${path}.css`;
             localStorage.setItem('currentTheme', theme);
             localStorage.setItem('currentThemePath', path)
         

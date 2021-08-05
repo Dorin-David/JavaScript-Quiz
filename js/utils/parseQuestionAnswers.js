@@ -3,7 +3,7 @@ export function parseQuestionAnswers(answers){
     let option;
     for(let i = 0; i < answers.length; i++){
         option = String.fromCharCode(65 + i);
-        answr[option] = answers[i].split(': ')[1]
+        answr[option] = answers[i].split(/[A-Z]:/)[1]
     }
 
     return answr
