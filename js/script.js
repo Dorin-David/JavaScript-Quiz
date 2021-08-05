@@ -1,4 +1,4 @@
-import { getGameOptions } from './selectGameOptions.js'
+import { getGameOptions } from './selectGameOptions.js';
 
 const startButton = document.querySelector('.btn.start');
 
