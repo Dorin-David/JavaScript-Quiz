@@ -78,7 +78,8 @@ export class Questions {
             *   @param {Number} size the number of questions to retrieve
             * */
     getPortionOfQuestions(size) {
-        this._questions = this._questions.slice(0, size)
+        if(size) this._questions = this._questions.slice(0, size)
+        else this._questions = this._questions.slice(0)
     }
 
 }

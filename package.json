@@ -1,0 +1,30 @@
+{
+  "name": "javascript-quiz",
+  "version": "1.0.0",
+  "description": "A simple JavaScript quiz game",
+  "keywords": [
+    "javascript",
+    "quiz",
+    "game",
+    "questions"
+  ],
+  "homepage": "https://github.com/Dorin-David/JavaScript-Quiz#readme",
+  "main": "js/script.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "http-server .",
+    "build": "npx webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dorin-David/JavaScript-Quiz.git"
+  },
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/Dorin-David/JavaScript-Quiz/issues"
+  },
+  "devDependencies": {
+    "webpack": "^5.48.0",
+    "webpack-cli": "^4.7.2"
+  }
+}

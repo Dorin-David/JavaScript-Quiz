@@ -8,7 +8,7 @@ body {
   font-family: sans-serif;
   background: #1c1b1b;
   position: relative;
-
+  margin: 0;
 }
 
 nav {
@@ -19,7 +19,7 @@ nav {
   position: fixed;
   top: 0;
   left: 0;
-  background: #0f0f0f
+  background: #0f0f0f;
 }
 
 nav a {
@@ -30,9 +30,12 @@ nav a {
   color: white;
 }
 
-/* nav a:nth-child(2){
+.settings-btn {
+  cursor: pointer;
+  display: flex;
   margin-left: auto;
-} */
+  margin-right: 1rem;
+}
 
 nav a:hover {
   color: var(--pale-gold);
@@ -49,7 +52,7 @@ h2 {
   color: #f6d62a;
 }
 
- p {
+p {
   font-size: 1.1rem;
   color: white;
   line-height: 1.4;
@@ -70,14 +73,14 @@ h2 {
   color: var(--pale-gold);
 }
 
-code.hljs {
+#question-code,
+#review-code {
   width: 80%;
   min-height: 200px;
   margin: auto;
   margin-top: 0;
   padding: 1rem;
   font-size: 1.2rem;
-  background: #0e0e0e;
   border-radius: 6px;
 }
 
@@ -292,6 +295,13 @@ code.hljs {
   text-align: center;
 }
 
+.correct-answer,
+.review-explanation,
+.review-btn.previous {
+  margin-left: 9%
+}
+
+
 @media screen and (max-width: 1000px) {
   .sand-box {
     width: 80%;
@@ -318,17 +328,23 @@ code.hljs {
   .answers-wrapper {
     width: 70%;
     margin: auto;
-    grid-template-areas:
-      "a a"
-      "b b"
-      "c c"
-      "d d"
-      "e e";
+    grid-template-columns: 1fr;
+    grid-template-areas: initial;
+    grid-auto-rows: auto;
+  }
+
+  .answer {
+    grid-area: initial;
+    margin: 0.3rem;
   }
 }
+
 
 @media screen and (max-width: 600px) {
   .answers-wrapper {
     width: 70%;
   }
+
+  
 }
+
