@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript Quiz</title>
+    <!-- style -->
+    <link rel="stylesheet" href="../style/style.css" />
+    <!-- shake animation -->
+    <link rel="stylesheet" href="../style/animation.css" />
+    <!-- code style -->
+    <link rel="stylesheet" href="../code_styles/an-old-hope.css" id="code-style"/>
+    <!-- settings -->
+    <link rel="stylesheet" href="../style/settings.css">
+    <!-- code style scripts -->
+    <script src="../highlight.pack.js"></script>
+  </head>
+  <body>
+    <nav class="nav-bar">
+      <a href="./index.html">Home</a>
+      <a href="https://github.com/Dorin-David/JavaScript-Quiz" target="_blank">GitHub</a>
+      <div class="settings-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-settings"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+      </div>
+    </nav>
+      <!-- description -->
+    <div class="description">
+      <h1>JavaScript Quiz Game</h1>
+      <p>JavaScript it's an amazing programming language, don't you think? If you made it here
+        you've probably studied it (more likely, you're still in the process); and if you've studied it, you know that with its dynamism come quirks and caveats. 
+        You think you know JavaScript? Let's find out!
+      </p>
+        <p class="credits">The questions of this quiz are taken from a very popular GitHub 
+          <a href="https://github.com/lydiahallie/javascript-questions" target="_blank">repo</a>. We'll soon add our questions. Feel free to contribute! </p>
+    </div>
+    <!-- end description -->
+    
+    <!-- game options -->
+    <div class="game-options">
+      <h1>Get Ready!</h1>
+        <!-- time options -->
+        <div class="options-wrapper time">
+           <button class='option-btn time' data-time="true">Time</button>
+           <button class='option-btn time selected'>No Time</button>
+        </div>
+        <!-- end time options -->
+        <!-- difficulty options -->
+        <h2>Difficulty</h2>
+        <div class="options-wrapper">
+         <div class='option-btn difficulty' data-questions="10">
+           <button>Chill</button>
+           <p>10 questions</p>
+         </div>
+         <div class='option-btn difficulty selected' data-questions="20">
+           <button >Easy</button>
+           <p>20 questions</p>
+         </div>
+         <div class='option-btn difficulty' data-questions="40">
+           <button >Medium</button>
+           <p>40 questions</p>
+         </div>
+         <div class='option-btn difficulty' data-questions="60">
+           <button >Hard</button>
+           <p>60 questions</p>
+         </div>
+         <div class='option-btn difficulty' data-questions="0">
+           <button>JS wizard</button>
+           <p>greetings sensei!</p>
+         </div>
+       </div>
+        <!-- end difficulty options -->
+        <button class="btn start">Start</button>
+    </div>
+        <!-- end game options -->
+    <!-- sandobox for questions -->
+    <div class="sand-box hidden">
+      <h3 class="question-title"></h3>
+      <pre><code class="javascript" id="question-code"></code></pre>
+      <p class='timer hidden'>60</p>
+      <div class="answers-wrapper"></div>
+      <button class="btn next-btn" disabled>Next</button>
+    </div>
+    <!-- end sandbox -->
+
+    <!-- score -->
+   <div class="score-wrapper hidden">
+       <p class="score"></p>
+       <button class="btn start">Restart</button>
+       <button class="btn-review hidden">Review</button>
+   </div>
+    <!-- end score -->
+
+    <!-- review -->
+   <div class="review hidden">
+      <h1 class="review-question"></h1>
+      <pre><code class="javascript" id="review-code"></code></pre>
+      <p class="correct-answer"></p>
+      <h2>Explanation</h2>
+      <p class="review-explanation"></p>
+      <button class="review-btn previous" >Previous</button>
+      <button class="review-btn next">Next</button>
+      <button class="review-btn end">Restart</button>
+   </div>
+    <!-- end review -->
+
+    <!-- settings -->
+
+    <div class="settings-wrapper hidden">
+      <!-- close setting btn -->
+      <div class="close-settings-btn" title="close settings">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </div>
+      <!-- go back button -->
+      <div class='go-back-setting-btn hidden' title="back to settings">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+      </div>
+      <!-- back to top button -->
+      <div class="back-to-top-btn hidden" title="back to top">
+        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-up-circle"><circle cx="12" cy="12" r="10"/><polyline points="16 12 12 8 8 12"/><line x1="12" y1="16" x2="12" y2="8"/></svg>
+      </div>
+       <!-- options -->
+       <div class="select-setting themes">
+         Themes
+       </div>
+       <!-- end options -->
+
+    <div class='settings-themes hidden'></div>
+
+    <!-- end settings -->
+
+    <!-- <script src="./js/script.js" type="module"></script>
+    <script src='./js/settings.js' type="module"></script> -->
+    <script src="main.js"></script>
+  </body>
+</html>

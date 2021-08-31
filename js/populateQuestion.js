@@ -9,6 +9,10 @@ function populateQuestion(question, callback) {
     questionTitle.textContent = question.getTitle()
     questionCode.textContent = question.getCode()
 
+    console.log(questionCode.textContent)
+    if(!questionCode.textContent) questionCode.classList.add('hidden')
+    else questionCode.classList.remove('hidden')
+
     //clear previous options
     options.innerHTML = '';
     //highlight code
